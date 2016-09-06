@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :members
+  resources :likes
   root "posts#index"
 
   resources :posts
