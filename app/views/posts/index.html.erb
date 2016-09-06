@@ -1,0 +1,16 @@
+<% @posts.each do |post| %>
+
+<hr>
+<h4><%= post.title %></h4>
+<p><%= post.body %></p>
+<div>By <%= post.user.full_name %></div>
+<div>
+  <%= link_to 'Join' %>
+  <%= link_to 'Like' %>
+  <%= link_to 'Show', post %>
+  <%= link_to 'Edit', edit_post_path(post) %>
+  <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
+<% end %>
+
+<br>
