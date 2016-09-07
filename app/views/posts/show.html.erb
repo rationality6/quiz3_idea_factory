@@ -27,16 +27,18 @@
 <%= link_to 'Back', posts_path %>
 
 <%= @post.errors.full_messages.join(", ")  %>
-<%#= form_for [@post, @comment], do |f| %>
+<%= bootstrap_form_for [@post, @comment] do |f| %>
 <div>
-  <%#= f.text_field :body %>
+  <%= f.text_field :body %>
 </div>
-<%#= f.submit %>
-<%# end %>
+<%= f.submit %>
+<% end %>
 
-<h2>Answers</h2>
+<h3>comments</h3>
 <div id='answers'>
-  <%# @post.comments.each do |comment| %>
-    <%#= comment.body %>
-  <%# end %>
+  <% @post.comments.each do |comment| %>
+  <div>
+    <%= comment.body %>
+  </div>
+  <% end %>
 </div>
