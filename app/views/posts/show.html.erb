@@ -25,3 +25,18 @@
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
+
+<%= @post.errors.full_messages.join(", ")  %>
+<%#= form_for [@post, @comment], do |f| %>
+<div>
+  <%#= f.text_field :body %>
+</div>
+<%#= f.submit %>
+<%# end %>
+
+<h2>Answers</h2>
+<div id='answers'>
+  <%# @post.comments.each do |comment| %>
+    <%#= comment.body %>
+  <%# end %>
+</div>

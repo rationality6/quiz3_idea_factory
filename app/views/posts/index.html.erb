@@ -7,6 +7,7 @@
 <div>
 
   <div>
+
     <% user_join = post.member_for current_user %>
     <% if user_join.present? %>
       <%= link_to "Leave", post_member_path(post, user_join), method: :delete %>
@@ -14,11 +15,15 @@
       <%= link_to "Join", post_members_path(post), method: :post %>
     <% end %>
 
-    <% user_like = post.like_for current_user %>
-    <% if user_like.present? %>
-      <%= link_to "Un-Like", post_like_path(post, user_like), method: :delete %>
+    <% if cannot? :like, post %>
+      <% user_like = post.like_for current_user %>
+      <% if user_like.present? %>
+        <%= link_to "Un-Like", post_like_path(post, user_like), method: :delete %>
+      <% else %>
+        <%= link_to "Like", post_likes_path(post), method: :post %>
+      <% end %>
     <% else %>
-      <%= link_to "Like", post_likes_path(post), method: :post %>
+      Like
     <% end %>
   </div>
 
