@@ -32,7 +32,7 @@
 <%= link_to 'Back', posts_path %>
 
 <%= @post.errors.full_messages.join(", ")  %>
-<%= bootstrap_form_for [@post, @comment] do |f| %>
+<%= bootstrap_form_for [@post, @comment], remote:true do |f| %>
 <div>
   <%= f.text_field :body %>
 </div>
@@ -40,12 +40,8 @@
 <% end %>
 
 <h3>comments</h3>
-<div id='answers'>
+<div id='comments'>
   <% @post.comments.each do |comment| %>
-  <div>
-    <%= comment.body %>
-    <div><%= comment.user.full_name %></div>
-    <div><%= comment.created_at %></div>
-  </div>
+    <%= render 'comments/comment', comment: comment %>
   <% end %>
 </div>

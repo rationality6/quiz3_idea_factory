@@ -16,7 +16,8 @@
       <%= link_to "Join", post_members_path(post), method: :post %>
     <% end %>
 
-    <% if cannot? :like, post %>
+    <% if user_signed_in? %>
+    <%# if can? :like, post %>
       <% user_like = post.like_for current_user %>
       <% if user_like.present? %>
         <%= link_to "Un-Like", post_like_path(post, user_like), method: :delete %>

@@ -7,8 +7,8 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to post_path(@post), notice: 'Answer created!' }
-        format.js { render }
+        format.html { redirect_to post_path(@post), notice: 'Comment created!' }
+        format.js { render :create }
       else
         format.html { render '/posts/show' }
         format.js { render }
@@ -17,10 +17,11 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @answer = Answer.find params[:id]
-    @answer.destroy
+    byebug
+    @comment = Comment.find params[:id]
+    @comment.destroy
     respond_to do |format|
-      format.html { redirect_to question_path(@answer.question), notice: 'Answer deleted' }
+      format.html { redirect_to post_path(@post.comment), notice: 'Comment deleted' }
       format.js   { render } # this renders /app/views/answers/destroy.js.erb
     end
   end

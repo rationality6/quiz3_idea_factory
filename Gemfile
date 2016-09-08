@@ -37,7 +37,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'faker'
   gem 'cowsay'
-
+  gem 'pry'
   gem 'rspec-rails'
   gem 'rails-controller-testing'
   gem 'factory_girl_rails'

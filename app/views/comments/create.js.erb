@@ -1,0 +1,3 @@
+console.log('create_works');
+$('#comments').prepend('<%= j(render('/comments/comment',{comment: @comment})) %>');
+$('#comment_body').val('');

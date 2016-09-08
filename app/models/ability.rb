@@ -14,13 +14,17 @@ class Ability
       user == post.user
     end
 
-    cannot :like, Post do |post|
-      user == post.user
+    can :like, Post do |post|
+      user != post.user
+    end
+
+    can :like, Post do |post|
+      user != post.user
     end
 
     can :destroy, Like do |like|
       user == like.user
     end
-
   end
+
 end

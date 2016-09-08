@@ -1,0 +1,10 @@
+<div>
+  <div><%= comment.body %></div>
+  <div><%= comment.user.full_name %></div>
+  <div>
+    <%= comment.created_at %>
+    <%= link_to 'Del', post_comment_path(@post,comment),
+    method: :delete,
+    remote: true%>
+  </div>
+</div>
