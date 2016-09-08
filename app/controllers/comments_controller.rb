@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :comment_param
+  before_action :comment_param, only: [:create]
 
   def create
     @post = Post.find params[:post_id]
@@ -17,7 +17,6 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    byebug
     @comment = Comment.find params[:id]
     @comment.destroy
     respond_to do |format|

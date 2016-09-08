@@ -2,12 +2,11 @@ class MembersController < ApplicationController
   def create
     post = Post.find params[:post_id]
     member = Member.new post: post, user: current_user
-    if !(can? :member, post)
-      redirect_to root_path, alert: 'access denied'
-    elsif member.save
+    if can? :member, member
+      member.save
       redirect_to root_path
     else
-      redirect_to root_path
+      redirect_to root_path, alert: 'access denied'
     end
   end
 
