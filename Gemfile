@@ -38,7 +38,7 @@ group :development, :test do
   gem 'faker'
   gem 'cowsay'
   gem 'pry'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 3.5.2'
   gem 'rails-controller-testing'
   gem 'factory_girl_rails'
 end
@@ -55,7 +55,6 @@ group :development do
   gem 'interactive_editor'
   gem 'hirb'
   gem 'rails-erd'
-
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

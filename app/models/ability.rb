@@ -18,7 +18,6 @@ class Ability
       user != like.post.user
     end
 
-
     can :member, Member do |member|
       user != member.post.user
     end
@@ -31,7 +30,7 @@ class Ability
     # can :like, Post do |post|
     #   user != post.user
     # end
-    
+
     can :destroy, Like do |like|
       user != like.post.user
     end
