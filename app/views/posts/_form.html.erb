@@ -1,4 +1,4 @@
-<%= bootstrap_form_for(post) do |f| %>
+<%= simple_form_for(post) do |f| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -12,12 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.text_field :title %>
+    <%= f.input :title %>
   </div>
 
   <div class="field">
-    <%= f.text_field :body %>
+    <%= f.input :body %>
   </div>
+  <%= f.input :image %>
+
+
 
   <div class="actions">
     <%= f.submit %>

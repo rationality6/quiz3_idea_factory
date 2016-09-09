@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'simple_form'
+gem 'mini_magick'
+gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
 gem 'cancancan'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bootstrap_form'

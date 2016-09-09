@@ -10,6 +10,8 @@
   <%= @post.body %>
 </p>
 
+<%= image_tag @post.image.url(:midium) %>
+
 <p>
   <strong>By </strong>
   <%= @post.user.full_name %>

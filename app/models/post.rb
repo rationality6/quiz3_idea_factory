@@ -7,6 +7,8 @@ class Post < ApplicationRecord
 
   has_many :members, dependent: :destroy
 
+  mount_uploader :image, FileUploader
+
   def like_for(user)
     likes.find_by_user_id user
   end
