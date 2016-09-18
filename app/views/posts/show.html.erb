@@ -10,8 +10,11 @@
   <%= @post.body %>
 </p>
 
-<%= image_tag @post.image.url(:midium) %>
 
+<% if @post.image? %>
+  <%= image_tag @post.image.url(:midium) %>
+<% else %>
+<% end %>
 <p>
   <strong>By </strong>
   <%= @post.user.full_name %>
